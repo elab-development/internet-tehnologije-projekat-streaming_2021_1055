@@ -14,4 +14,9 @@ class Team extends Model
     protected $casts = [
         'id' => 'integer'
     ];
+
+    public function players()
+    {
+        return $this->hasMany(Player::class);
+    }
 }
