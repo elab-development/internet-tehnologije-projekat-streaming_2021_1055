@@ -18,7 +18,6 @@ class GameResource extends JsonResource
             'id' => $this->id,
             'startTime' => $this->start_time,
             'private' => $this->private,
-            'link' => $this->link,
             'teams' => TeamStatisticsResource::collection($this->teamStatistics),
             'players' => PlayerStatisticsResource::collection($this->playerStatistics)
         ];
