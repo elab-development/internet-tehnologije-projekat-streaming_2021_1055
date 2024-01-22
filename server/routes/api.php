@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
+Route::apiResource('games', GameController::class)->only('index');
+
 Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('games', GameController::class)->only('show');
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('profile', [AuthController::class, 'profile']);
+});
+Route::group(['middleware' => ['auth:sanctum', 'admin']], function () {
+    Route::apiResource('games', GameController::class)->only('store', 'destroy', 'update');
 });
