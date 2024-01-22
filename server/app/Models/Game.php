@@ -9,22 +9,20 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['start_time', 'private', 'host', 'guest'];
+    protected $fillable = ['start_time', 'private', 'link'];
 
     protected $casts = [
         'start_time' => 'timestamp',
         'private' => 'boolean',
-        'host' => 'integer',
-        'guest' => 'integer'
     ];
 
-    public function hostTeam()
+    public function teamStatistics()
     {
-        return $this->belongsTo(Team::class, 'host', 'id');
+        return $this->hasMany(TeamStatistics::class);
     }
 
-    public function guestTeam()
+    public function playerStatistics()
     {
-        return $this->belongsTo(Team::class, 'guest', 'id');
+        return $this->hasMany(PlayerStatistics::class);
     }
 }
