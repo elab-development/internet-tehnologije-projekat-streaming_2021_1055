@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->timestamp('start_time');
+            $table->timestamp('start_time')->nullable();
             $table->boolean('private');
             $table->foreignId('host')->constrained('teams', 'id');
             $table->foreignId('guest')->constrained('teams', 'id');

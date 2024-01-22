@@ -17,7 +17,12 @@ class PlayerStatisticsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'player_id' => $this->faker->numberBetween(1, 10),
+            'game_id' => $this->faker->numberBetween(1, 10),
+            'points' => $this->faker->numberBetween(0, 17),
+            'fouls' => $this->faker->numberBetween(0, 5),
+            'assists' => $this->faker->numberBetween(0, 9),
+            'rebounds' => $this->faker->numberBetween(0, 8),
         ];
     }
 }

@@ -17,7 +17,9 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'start_time' => $this->faker->time(),
+            'private' => $this->faker->boolean(),
+            'link' => null,
         ];
     }
 }

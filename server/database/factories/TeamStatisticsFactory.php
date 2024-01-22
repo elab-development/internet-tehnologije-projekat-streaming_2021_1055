@@ -17,7 +17,12 @@ class TeamStatisticsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'team_id' => $this->faker->numberBetween(1, 10),
+            'game_id' => $this->faker->numberBetween(1, 10),
+            'host' => $this->faker->boolean,
+            'points' => $this->faker->numberBetween(40, 117),
+            'fouls' => $this->faker->numberBetween(0, 5),
+            'substitutions_left' => $this->faker->numberBetween(0, 6),
         ];
     }
 }
