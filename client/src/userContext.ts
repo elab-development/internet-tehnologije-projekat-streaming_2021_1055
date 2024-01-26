@@ -3,9 +3,9 @@ import { LoginUser, RegisterUser, User } from './model';
 
 export interface UserContextType {
     user?: User,
-    logout: () => void,
-    login: (loginUser: LoginUser) => void,
-    register: (registerUser: RegisterUser) => void
+    logout: () => Promise<void>,
+    login: (loginUser: LoginUser) => Promise<void>,
+    register: (registerUser: RegisterUser) => Promise<void>
 }
 
 export const UserContext = React.createContext<UserContextType | null>(null);

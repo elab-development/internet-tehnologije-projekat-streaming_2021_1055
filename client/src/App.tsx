@@ -16,8 +16,8 @@ function App() {
   const [user, setUser] = useState<User | undefined>(undefined);
   const logout = async () => {
     await axios.post('/api/logout');
-    setUser(undefined),
-      axios.defaults.headers.common.Authorization = ''
+    setUser(undefined);
+    axios.defaults.headers.common.Authorization = ''
   }
   const login = async (loginUser: LoginUser) => {
     const res = await axios.post('/api/login', loginUser);

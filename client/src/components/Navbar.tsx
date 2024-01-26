@@ -29,10 +29,10 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Link to='login'>
-                                    <button className="btn btn-outline-primary my-2 my-sm-0" >Login</button>
+                                    <button className="btn btn-outline-light my-2 my-sm-0" >Login</button>
                                 </Link>
                                 <Link to='register'>
-                                    <button className="btn btn-outline-primary my-2 my-sm-0" >Register</button>
+                                    <button className="btn btn-outline-light my-2 my-sm-0" >Register</button>
                                 </Link>
                             </>
                         )
