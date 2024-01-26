@@ -37,7 +37,7 @@ export default function LoginPage() {
                         }
                     }
                 }}>
-                    <Input value={email} onChange={setEmail} name='email' label='Email' type='email' required />
+                    <Input value={email} onChange={setEmail} label='Email' type='email' required />
                     <Input value={password} onChange={setPassword} label='Password' type='password' required />
                     <button className='mt-2 btn btn-outline-secondary form-control'>Login</button>
                 </form>
