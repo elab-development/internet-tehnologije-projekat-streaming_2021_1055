@@ -14,10 +14,12 @@ class GameResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $user = $request->user();
         return [
             'id' => $this->id,
             'startTime' => $this->start_time,
             'private' => $this->private,
+            'link' => $user && $user->admin ? $this->link : null,
             'teams' => TeamStatisticsResource::collection($this->teamStatistics),
             'players' => PlayerStatisticsResource::collection($this->playerStatistics)
         ];
