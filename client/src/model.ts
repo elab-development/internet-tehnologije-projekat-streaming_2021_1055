@@ -14,7 +14,7 @@ export interface GameItem {
 
 export interface Game extends GameItem {
     link?: string,
-    players: PlayerStatistics
+    players: PlayerStatistics[]
 }
 
 export interface Player {

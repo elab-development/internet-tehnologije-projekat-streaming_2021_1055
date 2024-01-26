@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router'
+import { useLocation, useParams } from 'react-router'
 import { Game, GameItem, GamePagination, Team } from './model';
 import axios from 'axios';
 
@@ -52,4 +52,29 @@ export function useLiveGames() {
             })
     }, [])
     return games;
+}
+
+export function useGame() {
+    const id = useParams().id;
+    const [game, setGame] = useState<Game | undefined>(undefined)
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        if (!id) {
+            return;
+        }
+        setLoading(true);
+        axios.get('/api/games/' + id)
+            .then(res => {
+                setGame(res.data)
+            })
+            .catch(err => {
+
+            }).finally(() => {
+                setLoading(false);
+            })
+    }, [id])
+
+    return {
+        game, loading
+    }
 }
