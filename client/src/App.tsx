@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { User } from './model';
+import { Route, Routes } from 'react-router';
+import GameSearchPage from './pages/GameSearchPage';
+import StreamPage from './pages/StreamPage';
+import GameStatisticsPage from './pages/GameStatisticsPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
+  const [user, setUser] = useState<User | undefined>(undefined);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+
+      <Routes>
+        <Route path='*' element={<GameSearchPage />} />
+        <Route path='stream/:id' element={<StreamPage />} />
+        {
+          user && (
+            <Route path='/game/:id' element={<GameStatisticsPage />} />
+          )
+        }
+        {
+          !user && (
+            <>
+              <Route path='login' element={<LoginPage />} />
+              <Route path='register' element={<RegisterPage />} />
+            </>
+          )
+        }
+      </Routes>
     </div>
   );
 }
