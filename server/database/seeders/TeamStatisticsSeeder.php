@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Team;
+use App\Models\TeamStatistics;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,6 @@ class TeamStatisticsSeeder extends Seeder
      */
     public function run(): void
     {
-        Team::factory(50)->create();
+        TeamStatistics::factory(50)->create();
     }
 }
