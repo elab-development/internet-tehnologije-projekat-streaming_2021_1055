@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { UserContext } from './userContext';
 import axios from 'axios';
+import ActiveGamesPage from './pages/ActiveGamesPage';
 
 
 
@@ -43,6 +44,7 @@ function App() {
 
         <Routes>
           <Route path='*' element={<GameSearchPage />} />
+          <Route path='live' element={<ActiveGamesPage />} />
           <Route path='stream/:id' element={<StreamPage />} />
           {
             user && (

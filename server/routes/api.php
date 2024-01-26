@@ -21,6 +21,7 @@ Route::post('register', [AuthController::class, 'register']);
 Route::get('games/{id}/stream', [StreamController::class, 'stream']);
 
 Route::apiResource('games', GameController::class)->only('index');
+Route::get('games/active', [GameController::class, 'getActiveGames']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('games', GameController::class)->only('show');

@@ -13,7 +13,7 @@ class GameService
 
     public function searchGames($teamId, $from, $to, $page, $size)
     {
-        $query = Team::query();
+        $query = Game::query();
         if ($from != null) {
             $query->where('start_time', '>', $from);
         }
@@ -29,6 +29,17 @@ class GameService
             $query->where('id', 'in', $ids);
         }
         return $query->paginate($size, $page = $page);
+    }
+
+    public function getActiveGames($onlyPublic)
+    {
+        $query = Game::query()
+            ->where('finished', false)
+            ->where('start_time', '<=', now());
+        if ($onlyPublic) {
+            $query = $query->where('private', false);
+        }
+        return $query->get();
     }
 
     public function createGame($data)

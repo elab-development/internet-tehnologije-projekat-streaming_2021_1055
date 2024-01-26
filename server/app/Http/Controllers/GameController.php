@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\GameCollection;
+use App\Http\Resources\GameItemResource;
 use App\Http\Resources\GameResource;
 use App\Models\Game;
 use App\Services\GameService;
@@ -30,6 +31,13 @@ class GameController extends Controller
         $page = $request->query('page', 0);
         $size = $request->query('size', 20);
         return response(new GameCollection($this->gameService->searchGames($teamId, $from, $to, $page, $size)));
+    }
+
+    public function getActiveGames(Request $request)
+    {
+        $user = $request->user();
+        $games = $this->gameService->getActiveGames(!$user);
+        return response()->json(GameItemResource::collection($games));
     }
 
     /**

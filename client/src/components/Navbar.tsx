@@ -16,6 +16,9 @@ export default function Navbar() {
                     <li className="nav-item active">
                         <NavLink className='nav-link' to='/'>Games</NavLink>
                     </li>
+                    <li>
+                        <NavLink className='nav-link' to='/live'>Live matches</NavLink>
+                    </li>
                 </ul>
                 <div>
                     {

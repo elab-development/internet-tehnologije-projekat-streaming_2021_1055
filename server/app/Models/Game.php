@@ -9,11 +9,12 @@ class Game extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['start_time', 'private', 'link'];
+    protected $fillable = ['start_time', 'private', 'link', 'finished'];
 
     protected $casts = [
         'start_time' => 'timestamp',
         'private' => 'boolean',
+        'finished' => 'boolean'
     ];
 
     public function teamStatistics()
