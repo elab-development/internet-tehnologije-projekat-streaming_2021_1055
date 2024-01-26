@@ -18,6 +18,7 @@ class GameItemResource extends JsonResource
             'id' => $this->id,
             'startTime' => $this->start_time,
             'private' => $this->private,
+            'finished' => $this->finished,
             'teams' => TeamStatisticsResource::collection($this->teamStatistics)
         ];
     }

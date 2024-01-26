@@ -6,7 +6,7 @@ interface Props {
     required?: boolean,
     value?: string,
     onChange?: (val: string) => void,
-    type?: 'email' | 'password'
+    type?: 'email' | 'password' | 'date'
 }
 
 export default function Input(props: Props) {

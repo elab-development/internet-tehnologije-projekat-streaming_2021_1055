@@ -18,7 +18,7 @@ class GameService
             $query->where('start_time', '>', $from);
         }
         if ($to != null) {
-            $query->where('start_time', '>', $to);
+            $query->where('start_time', '<', $to);
         }
         if ($teamId != null) {
             $res = DB::table('team_statistics')->select('game_id')->where('team_id', $teamId)->get();
@@ -28,7 +28,7 @@ class GameService
             }
             $query->where('id', 'in', $ids);
         }
-        return $query->paginate($size, $page = $page);
+        return $query->paginate($size, ['*'], 'page', $page);
     }
 
     public function getActiveGames($onlyPublic)

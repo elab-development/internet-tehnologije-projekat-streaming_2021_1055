@@ -16,7 +16,7 @@ class PlayerStatisticsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'playerId' => $this->player_id,
+            'player' => new PlayerResource($this->player),
             'gameId' => $this->game_id,
             'points' => $this->points,
             'fouls' => $this->fouls,

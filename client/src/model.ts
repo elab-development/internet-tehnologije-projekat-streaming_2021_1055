@@ -8,7 +8,13 @@ export interface GameItem {
     id: number,
     startTime: string,
     private: boolean,
-    teams: Team[],
+    finished: boolean,
+    teams: TeamStatistics[],
+}
+
+export interface Game extends GameItem {
+    link?: string,
+    players: PlayerStatistics
 }
 
 export interface Player {
@@ -24,7 +30,7 @@ export interface PlayerStatistics {
     id: number,
     fouls: number,
     points: number,
-    playerId: number,
+    player: Player,
     gameId: number,
     assists: number,
     rebounds: number,
@@ -38,8 +44,10 @@ export interface Team {
 
 export interface TeamStatistics {
     id: number,
-    teamId: number,
-    gameId: number,
+    team: {
+        id: number,
+        name: string
+    }
     host: boolean,
     points: number,
     fouls: number,

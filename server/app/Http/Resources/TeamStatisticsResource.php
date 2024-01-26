@@ -16,8 +16,10 @@ class TeamStatisticsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'teamId' => $this->team_id,
-            'gameId' => $this->game_id,
+            'team' => [
+                "id" => $this->team->id,
+                'name' => $this->team->name
+            ],
             'host' =>  $this->host,
             'points' => $this->points,
             'fouls' => $this->fouls,
