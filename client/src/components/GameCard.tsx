@@ -25,7 +25,7 @@ export default function GameCard(props: Props) {
                     )
                 }
                 {
-                    (user || !props.game.private) && !props.game.finished && (
+                    (user || !props.game.private) && !props.game.finished && props.game.hasLink && (
                         <Link to={'/stream/' + props.game.id}>
                             <button className='btn btn-outline-secondary mx-2'>Stream</button>
                         </Link>

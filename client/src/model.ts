@@ -9,6 +9,7 @@ export interface GameItem {
     startTime: string,
     private: boolean,
     finished: boolean,
+    hasLink: boolean,
     teams: TeamStatistics[],
 }
 

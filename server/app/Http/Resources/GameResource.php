@@ -20,6 +20,7 @@ class GameResource extends JsonResource
             'startTime' => $this->start_time,
             'private' => $this->private,
             'finished' => $this->finished,
+            "hasLink" => $this->link != null,
             'link' => $user && $user->admin ? $this->link : null,
             'teams' => TeamStatisticsResource::collection($this->teamStatistics),
             'players' => PlayerStatisticsResource::collection($this->playerStatistics)
