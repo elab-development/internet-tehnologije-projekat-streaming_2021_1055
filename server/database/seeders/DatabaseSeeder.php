@@ -14,11 +14,9 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
         $this->call([
-            GameSeeder::class,
             TeamSeeder::class,
-            TeamStatisticsSeeder::class,
             PlayerSeeder::class,
-            PlayerStatisticsSeeder::class
+            GameSeeder::class,
         ]);
 
         \App\Models\User::factory()->create([

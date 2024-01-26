@@ -52,6 +52,9 @@ export default function TeamOverview(props: Props) {
                                         {`${playerStatistics.player.firstName} ${playerStatistics.player.lastName} - ${playerStatistics.player.position}`}
                                     </td>
                                     <td>
+                                        {playerStatistics.player.position}
+                                    </td>
+                                    <td>
                                         {playerStatistics.points}
                                     </td>
                                     <td>
