@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class StreamController extends Controller
 {
@@ -17,6 +18,6 @@ class StreamController extends Controller
         if ($game->private && !$user) {
             return  response()->json(['message' => 'Missing game', 404]);
         }
-        return response()->redirectTo($game->link);
+        return response()->json(["link" => $game->link]);
     }
 }
